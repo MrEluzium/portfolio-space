@@ -1,34 +1,12 @@
-<svg width="450" height="60" viewBox="0 0 450 60" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#0554F2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#6C7BFF;stop-opacity:1" />
-    </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="1" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.3"/>
-    </filter>
-  </defs>
-  <text 
-    x="50%" 
-    y="40" 
-    fill="url(#titleGradient)" 
-    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" 
-    font-size="36" 
-    font-weight="bold" 
-    text-anchor="middle"
-    filter="url(#shadow)">
-    Portfolio Space
-  </text>
-</svg>
+![Title](.github/space-title.png)
 
 <!-- Badges -->
-<p align="center">
-  <!-- Replace YOUR_NETLIFY_SITE_ID and YOUR_NETLIFY_SITE_NAME -->
-  <a href="https://app.netlify.com/sites/YOUR_NETLIFY_SITE_NAME/deploys">
-    <img src="https://api.netlify.com/api/v1/badges/YOUR_NETLIFY_SITE_ID/deploy-status" alt="Netlify Status" />
+<p>
+  <a href="https://app.netlify.com/sites/elzzz-portfolio/deploys">
+    <img src="https://api.netlify.com/api/v1/badges/fe0839b1-8ff9-4775-9cf2-8cf6f5328793/deploy-status" alt="Netlify Status" />
   </a>
   <a href="https://astro.build">
-    <img src="https://img.shields.io/badge/Built_with-Astro-5A67D8.svg?style=flat-square&logo=astro" alt="Built with Astro">
+    <img src="https://astro.badg.es/v2/built-with-astro/tiny.svg" alt="Built with Astro" width="120" height="20">
   </a>
   <a href="https://www.gnu.org/licenses/agpl-3.0">
     <img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=flat-square" alt="License: AGPL v3">
