@@ -1,0 +1,219 @@
+heroTagline: >
+  Experienced Unreal Engine Developer with a strong background in game mechanics, 
+  multiplayer systems, and UI development. Proficient in C++ and Blueprints for 
+  rapid prototyping and production-ready code. Seeking to leverage skills in 
+  gameplay systems, networking, and optimization in a dynamic 
+  development environment.
+
+contactInfo:
+  email: mreluzium@gmail.com
+  telegram:
+    username: "@elzzznevermore"
+    url: "https://t.me/elzzznevermore"
+  linkedin:
+    profileName: artemvoronovit
+    url: "https://www.linkedin.com/in/artemvoronovit"
+
+experiences:
+  - company: AIM Twins
+    title: C++ / Python Developer
+    dates: December 2024 - Present
+    description: >
+      Supporting a team of professional CAD modellers and developers to bring 
+      their projects to life. I craft Python scripts to streamline CAD workflows, 
+      fix raw photogrammetry scans, enhancing design efficiency, and develop C++ 
+      solutions for ESP32 microcontrollers, enabling robust embedded systems integration.
+    tags:
+      - C++
+      - Python
+      - Tools Programming
+      - CAD Scripting
+      - ESP32 Programming
+      - Photogrammetry
+
+  - company: 4Tale Production
+    title: Unreal Engine Developer
+    dates: April 2024 - November 2024
+    description: >
+      Contributed to multiple studio projects. For Warcos 2 (multiplayer FPS), 
+      implemented gameplay features using GAS, built an ability-based operator system, 
+      revamped QTE battle mode, and enhanced UI. For MMO Neo-Dao, developed network 
+      functionality (player relations, chats, groups, auctions) with WebSocket integration. 
+      Initiated a custom shooting system for The Last Station (survival game).
+    tags:
+      - Unreal Engine
+      - C++
+      - Gameplay Ability System (GAS)
+      - Multiplayer
+      - Networking
+      - UI/Widgets
+      - WebSockets
+
+  - company: Dualboot Partners
+    title: VR Consultant (Unity)
+    dates: May 2024 - June 2024
+    description: >
+      Served as VR Consultant and primary contract developer. Led development of 
+      a demo VR application integrating a third-party device with the studio’s backend. 
+      Designed and implemented core functionalities, ensuring smooth device interaction 
+      and delivering a polished proof-of-concept.
+    tags:
+      - Unity
+      - C#
+      - VR
+      - Backend Integration
+
+  - company: Freelance
+    title: Unreal Engine Developer
+    dates: October 2022 - April 2024
+    description: >
+      Led outsource development for various platforms (PC, Mobile, Hololens, Oculus Quest, 
+      HTC Vive). Collaborated with 3D modelers and a project manager. Completed projects 
+      using Unreal Engine with VR Expansion Plugin, MRTK, Networking, etc.
+    tags:
+      - Unreal Engine
+      - Unity
+      - VR / AR / MR
+      - VR Expansion Plugin
+      - MRTK
+      - Networking
+      - C++
+      - C#
+      - Mobile Dev
+
+  - company: Technopark "Quantorium Photonics"
+    title: Teacher of VR/AR directions
+    dates: November 2022 - July 2023
+    description: >
+      Taught advanced group classes on VR/AR development (Unreal Engine / Unity) 
+      and 3D modeling (Blender). Tutored project groups, conducted code reviews 
+      for student work on AR/VR solutions.
+    tags:
+      - Teaching
+      - Unreal Engine
+      - Unity
+      - VR/AR
+      - Blender
+      - Code Review
+
+projects:
+  - title: Dissonators
+    team: 4Tale Production
+    description: A fast-paced multiplayer first-person shooter.
+    role: >
+      Implemented core gameplay systems using Gameplay Ability System (GAS), developed 
+      an operator system with unique abilities, redesigned the QTE combat mode with 
+      contextual animations, and contributed to UI enhancements.
+    tags: 
+      - Unreal Engine
+      - C++
+      - GAS
+      - Multiplayer
+      - UI
+    links:
+     - url: "https://store.steampowered.com/app/2498610/Dissonators/" 
+       text: "Steam"
+       icon: "steam.svg"
+     - url: "https://youtu.be/brSkeG-SOkY"
+       text: "Trailer"
+       icon: "youtube.svg"
+     - url: "https://www.4taleproduction.com/game/dissonators"
+       text: "More"
+
+  - title: Holiverse
+    team: 4Tale Production
+    description: A massively multiplayer online game with social and economic features.
+    role: >
+      Developed network functionalities including player relations (friends, groups, chat), 
+      item auction house system, integrated in-game widgets with WebSocket backend.
+    tags: 
+      - Unreal Engine
+      - C++
+      - Networking
+      - WebSockets
+      - UI
+    links:
+     - url: "https://youtu.be/e7F2krLbSx4"
+       text: "Trailer (as Neo Dao)"
+       icon: "youtube.svg"
+     - url: "https://holiverse.ai/"
+       text: "More"
+
+  - title: The Last Station
+    team: 4Tale Production
+    description: A survival game project.
+    role: >
+      Initiated the development of a custom shooting system, focusing on core mechanics 
+      and foundational implementation within Unreal Engine.
+    tags: 
+      - Unreal Engine
+      - C++
+      - GAS
+      - UI
+      - AI & NPCs
+    links:
+     - url: "https://www.linkedin.com/posts/4tale-production_indiedev-videogames-gamedev-activity-7308112254594371584-cu3l"
+       text: "Announcement"
+
+  - title: B2B VR Device Demo
+    team: Dualboot Partners
+    description: Proof-of-concept VR application showcasing a third-party device's capabilities.
+    role: >
+      Led development, integrated the VR environment with the studio backend, implemented 
+      core device interactions within the virtual world.
+    tags: 
+      - Unity
+      - C#
+      - VR
+      - Backend Integration
+
+  - title: VR Drone Simulator
+    team: Freelance
+    description: >
+      An immersive virtual reality simulator developed for professional B2B applications. 
+    role: >
+      Architected and developed key systems for the VR drone simulator using Unreal Engine. 
+      Focused on creating a modular flight dynamics system, implementing VR controller input mapping for 
+      drone controls, designing the scenario loading/management framework, and integrating simulated sensor data streams. 
+      Ensured robust performance and accurate physics representation for effective B2B use cases.
+    tags: 
+      - Unreal Engine
+      - C++ 
+      - VR
+
+  - title: Structure Building Demo
+    team: Self Project
+    description: A demo project that implements building mechanics with GAS. Developed skills in materials and shaders, as well as in AI development.
+    tags: 
+      - Unreal Engine
+      - C++
+      - GAS
+      - Materials & Rendering
+      - AI & NPCs
+    links:
+     - url: "https://gitlab.com/elzzzdev/bluecatsbuilder"
+       text: "Source Code"
+       icon: "gitlab.svg"
+
+  - title: Interactive Showreel
+    team: Freelance
+    description: Interactive video player for exhibitions and conferences, allowing users to examine 3D models and information about the current moment of video presentation.
+    tags: 
+      - Unreal Engine
+    links:
+     - url: "https://github.com/MrEluzium/Mediaplayer-UE"
+       text: "Source Code"
+       icon: "github.svg"
+
+  - title: Unipoly
+    team: Self Project
+    description: Multiplayer boardgame made on Unreal Engine 5 as a pet project.
+    tags: 
+      - Unreal Engine
+      - C++
+      - GAS
+      - Networking
+    links:
+     - url: "https://gitlab.com/elzzzdev/unipoly"
+       text: "Source Code"
+       icon: "gitlab.svg"

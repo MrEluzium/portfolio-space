@@ -1,22 +1,224 @@
+<!-- Copyright (C) 2025 Artyom Voronov mreluzium@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
+---
+import "../styles/global.css"; 
+
+interface Props {
+    title: string;
+}
+const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Personal CV and Portfolio for Artyom Voronov, Gameplay Developer specializing in Unreal Engine." />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+	<link rel="icon" href="/favicons/favicon.ico" sizes="any" />
+	<link rel="manifest" href="/site.webmanifest" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <nav class="main-navigation">
+                    <ul>
+						<li><a href="#hero">Home</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+	<div id="top">
+		<main>
+			<slot />
+		</main>
+	</div> 
+
+    <!-- Site Footer -->
+	<footer class="site-footer">
+		<div class="container">
+			<p>© {new Date().getFullYear()} Artyom Voronov. <a target="_blank" rel="noopener noreferrer" href="https://github.com/MrEluzium/portfolio-space">Source code</a></p>
+		</div>
+   </footer>
+         
+   <script>
+	// --- Simple Throttle Function ---
+	function throttle(func, limit) {
+		let lastFunc;
+		let lastRan;
+		return function(...args) {
+			const context = this;
+			if (!lastRan) {
+				func.apply(context, args);
+				lastRan = Date.now();
+			} else {
+				clearTimeout(lastFunc);
+				lastFunc = setTimeout(function() {
+					if ((Date.now() - lastRan) >= limit) {
+						func.apply(context, args);
+						lastRan = Date.now();
+					}
+				}, limit - (Date.now() - lastRan));
+			}
+		}
 	}
-</style>
+
+	document.addEventListener('DOMContentLoaded', () => {
+		// --- Selectors ---
+		const sections = Array.from(document.querySelectorAll('main section[id]'));
+		const navLinks = document.querySelectorAll('.main-navigation a');
+		const body = document.body;
+		const header = document.querySelector('.site-header');
+		const scrollThreshold = 10; 
+		const throttleDelay = 100; 
+		const clickScrollDuration = 700;
+
+		if (!header || sections.length === 0 || navLinks.length === 0) {
+			return; 
+		}
+
+		// --- State Variables ---
+		let headerHeight = header.offsetHeight; 
+		let sectionData = []; 
+		let currentActiveLink = null; 
+		let isScrollingViaClick = false; // Use boolean flag
+		let clickTimeout; 
+
+		// --- Function to cache section positions ---
+		function cacheSectionData() {
+			headerHeight = header.offsetHeight; 
+			sectionData = sections.map(section => {
+				const id = section.getAttribute('id');
+				const linkElement = document.querySelector(`.main-navigation a[href="#${id}"]`);
+				const offset = section.offsetTop;
+				return { id, offsetTop: offset, linkElement };
+			}).filter(data => data.linkElement); 
+			sectionData.sort((a, b) => a.offsetTop - b.offsetTop);
+		}
+
+		// --- Function to SET the active link ---
+		function setActiveLink(linkToActivate) {
+			 if (linkToActivate && linkToActivate !== currentActiveLink) {
+				navLinks.forEach(link => link.classList.remove('active-link'));
+				linkToActivate.classList.add('active-link');
+				currentActiveLink = linkToActivate;
+			} else if (!linkToActivate && currentActiveLink) {
+				navLinks.forEach(link => link.classList.remove('active-link'));
+				currentActiveLink = null;
+			}
+		}
+
+		// --- Main Logic: Determine active link based on scroll position ---
+		function updateActiveLinkOnScroll() {
+			if (isScrollingViaClick) {
+				return;
+			}
+
+			const currentScrollY = window.scrollY;
+			const pageHeight = document.documentElement.scrollHeight;
+			const viewportHeight = window.innerHeight;
+			const currentHeaderHeight = header.offsetHeight; 
+			const activationPoint = currentScrollY + currentHeaderHeight + 25; 
+			const bottomScrollThreshold = 50; 
+
+			let linkToActivate = null;
+
+			// Check if near bottom
+			if (currentScrollY + viewportHeight >= pageHeight - bottomScrollThreshold) {
+				if (sectionData.length > 0) {
+					 linkToActivate = sectionData[sectionData.length - 1].linkElement;
+				}
+			} else {
+				for (let i = sectionData.length - 1; i >= 0; i--) {
+					const section = sectionData[i];
+					if (section.offsetTop <= activationPoint) {
+						linkToActivate = section.linkElement;
+						break;
+					}
+				}
+				 // Fallback to Home
+				const firstSectionTriggerPoint = (sectionData[0]?.offsetTop || currentHeaderHeight) - currentHeaderHeight - 10;
+				if (!linkToActivate && currentScrollY < firstSectionTriggerPoint) {
+					linkToActivate = navLinks[0];
+				}
+			}
+
+			setActiveLink(linkToActivate); 
+		}
+
+		// --- Header Shrinking Logic ---
+		 const handleHeaderScroll = () => {
+			if (window.scrollY > scrollThreshold) {
+				body.classList.add('header-scrolled');
+			} else {
+				body.classList.remove('header-scrolled');
+			}
+		};
+
+		// --- Throttled Handlers ---
+		const throttledScrollHandler = throttle(() => {
+			handleHeaderScroll();
+			updateActiveLinkOnScroll(); 
+		}, throttleDelay);
+
+		const throttledResizeHandler = throttle(() => {
+			cacheSectionData();
+			updateActiveLinkOnScroll();
+		}, throttleDelay);
+
+
+		 // --- Click Handler for Navigation Links ---
+		 navLinks.forEach(link => {
+			link.addEventListener('click', (event) => {
+				const targetHref = link.getAttribute('href');
+				if (!targetHref) return;
+
+				setActiveLink(link);
+
+				isScrollingViaClick = true; 
+				clearTimeout(clickTimeout);
+
+				clickTimeout = setTimeout(() => {
+					isScrollingViaClick = false;
+				}, clickScrollDuration); 
+			});
+		 });
+
+
+		// --- Initial Setup ---
+		cacheSectionData();        
+		handleHeaderScroll();    
+		setTimeout(updateActiveLinkOnScroll, 150); 
+
+		window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+		window.addEventListener('resize', throttledResizeHandler);
+
+	});
+	</script>
+</body>
+</html>

@@ -1,11 +1,142 @@
+<!-- Copyright (C) 2025 Artyom Voronov mreluzium@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
 ---
-import Welcome from '../components/Welcome.astro';
+import YAML from 'yaml';
+import { Image } from 'astro:assets';
+
 import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import profilePic from '../assets/head.jpg';
+import rawPortfolioData from '../data/portfolioData.yaml?raw';
+
+const portfolioData = YAML.parse(rawPortfolioData);
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Artyom Voronov - Gameplay Developer Portfolio">
+	<!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content-wrapper">
+                <div class="hero-text">
+                    <h1 class="hero-title">Artyom Voronov</h1>
+                    <p class="hero-subtitle">Gameplay Developer (Unreal Engine)</p>
+                    <p class="hero-location">Based in Moscow, Russia</p>
+                    <p class="hero-tagline">
+                        {portfolioData.heroTagline}
+                    </p>
+                    <a href="#projects" class="btn btn-primary hero-cta">View My Projects</a>
+                </div>
+                <div class="hero-photo-container">
+					<Image
+                        src={profilePic}
+                        alt="Head Picture"
+                        width={300}
+                        height={300}
+                        format="webp"
+                        quality={80}
+                        class="hero-photo"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="content-section">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-list">
+                {portfolioData.experiences.map(exp => (
+                    <article class="experience-item">
+                        <h3 class="experience-title">{exp.title}</h3>
+                        <p class="experience-company">{exp.company}</p>
+                        <p class="experience-dates">{exp.dates}</p>
+                        <p class="experience-description">{exp.description}</p>
+						{exp.tags && exp.tags.length > 0 && (
+                            <div class="experience-tags">
+                                {/* <strong>Skills:</strong> */}
+                                {exp.tags.map(tag => (
+                                    <span class="tag">{tag}</span>
+                                ))}
+                            </div>
+                        )}
+                    </article>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="content-section alt-bg">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                {portfolioData.projects.map(project => (
+                    <ProjectCard
+                        title={project.title}
+                        team={project.team}
+                        description={project.description}
+                        role={project.role}
+                        tags={project.tags}
+                        links={project.links}
+                    />
+                ))}
+            </div>
+        </div>
+    </section>
+
+	<!-- Contact Section -->
+    <section id="contact" class="content-section contact-section">
+		<div class="container">
+		   <h2>Get In Touch</h2>
+		   <p class="contact-intro">
+			   I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out!
+		   </p>
+		   <div class="contact-details">
+			   <div class="contact-item card-style">
+				   <div class="contact-icon">
+					   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+				   </div>
+				   <div class="contact-text">
+					   <span class="contact-label">Email</span>
+					   <a href={`mailto:${portfolioData.contactInfo.email}`} class="contact-link">{portfolioData.contactInfo.email}</a>
+				   </div>
+			   </div>
+
+			   <div class="contact-item card-style">
+					<div class="contact-icon">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+				   </div>
+				   <div class="contact-text">
+					   <span class="contact-label">Telegram</span>
+					   <a href={portfolioData.contactInfo.telegram.url} target="_blank" rel="noopener noreferrer" class="contact-link">{portfolioData.contactInfo.telegram.username}</a>
+				   </div>
+			   </div>
+
+			   <div class="contact-item card-style">
+					<div class="contact-icon">
+					   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+				   </div>
+				   <div class="contact-text">
+					   <span class="contact-label">LinkedIn</span>
+					   <a href={portfolioData.contactInfo.linkedin.url} target="_blank" rel="noopener noreferrer" class="contact-link">{portfolioData.contactInfo.linkedin.profileName}</a>
+				   </div>
+			   </div>
+
+		   </div>
+		</div>
+	</section>
 </Layout>
