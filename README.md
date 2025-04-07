@@ -1,17 +1,9 @@
 ![Title](.github/space-title.png)
 
 <!-- Badges -->
-<p>
-  <a href="https://app.netlify.com/sites/elzzz-portfolio/deploys">
-    <img src="https://api.netlify.com/api/v1/badges/fe0839b1-8ff9-4775-9cf2-8cf6f5328793/deploy-status" alt="Netlify Status" />
-  </a>
-  <a href="https://astro.build">
-    <img src="https://astro.badg.es/v2/built-with-astro/tiny.svg" alt="Built with Astro" width="120" height="20">
-  </a>
-  <a href="https://www.gnu.org/licenses/agpl-3.0">
-    <img src="https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=flat-square" alt="License: AGPL v3">
-  </a>
-</p>
+[![Build status](https://api.netlify.com/api/v1/badges/fe0839b1-8ff9-4775-9cf2-8cf6f5328793/deploy-status)](https://app.netlify.com/sites/elzzz-portfolio/deploys)
+[![Built with Astro](https://astro.badg.es/v2/built-with-astro/tiny.svg)](https://astro.build)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg?style=flat-square)](https://www.gnu.org/licenses/agpl-3.0)
 
 ---
 
