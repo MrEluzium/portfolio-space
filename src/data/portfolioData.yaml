@@ -35,9 +35,9 @@ experiences:
     title: Unreal Engine Developer
     dates: April 2024 - November 2024
     description: >
-      Contributed to multiple studio projects. For Warcos 2 (multiplayer FPS), 
+      Contributed to multiple studio projects. For a multiplayer FPS game Dissonators (ex Warcos 2), 
       implemented gameplay features using GAS, built an ability-based operator system, 
-      revamped QTE battle mode, and enhanced UI. For MMO Neo-Dao, developed network 
+      revamped QTE battle mode, and enhanced UI. For MMO Holiverse, developed network 
       functionality (player relations, chats, groups, auctions) with WebSocket integration. 
       Initiated a custom shooting system for The Last Station (survival game).
     tags:
