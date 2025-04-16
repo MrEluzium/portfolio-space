@@ -47,7 +47,7 @@ experiences:
       - Multiplayer
       - Networking
       - UI/Widgets
-      - WebSockets
+      - WebSocket
 
   - company: Dualboot Partners
     title: VR Consultant (Unity)
@@ -97,6 +97,23 @@ experiences:
       - Code Review
 
 projects:
+  - title: Clockwork Galaxy
+    team: Hozecast (GameJam Team)
+    description: Rogue-like game in space. Made in 48 hours on GGJam'25.
+    role: >
+      Lead the development, implemented custom orbital movement system, procedural map generation and space shooting.
+    tags: 
+      - Unreal Engine
+      - C++
+      - UI
+    links:
+     - url: "https://elzzznevermore.itch.io/hozecast-ggjam25-game" 
+       text: "itch.io"
+       icon: "itch.svg"
+     - url: "https://gitlab.com/elzzzdev/hozecastggjam"
+       text: "Source"
+       icon: "gitlab.svg"
+
   - title: Dissonators
     team: 4Tale Production
     description: A fast-paced multiplayer first-person shooter.
@@ -130,7 +147,7 @@ projects:
       - Unreal Engine
       - C++
       - Networking
-      - WebSockets
+      - WebSocket
       - UI
     links:
      - url: "https://youtu.be/e7F2krLbSx4"
