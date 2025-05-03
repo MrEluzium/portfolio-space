@@ -15,6 +15,17 @@ contactInfo:
     url: "https://www.linkedin.com/in/artemvoronovit"
 
 experiences:
+  - company: The Invaders
+    title: Unreal Engine Developer
+    dates: May 2025 - Present
+    description: >
+      Creating a virtual urban space!
+    tags:
+      - Unreal Engine
+      - C++
+      - Networking
+      - UI/Widgets
+
   - company: AIM Twins
     title: C++ / Python Developer
     dates: December 2024 - Present
