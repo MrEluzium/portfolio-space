@@ -30,10 +30,10 @@ experiences:
     title: C++ / Python Developer
     dates: December 2024 - Present
     description: >
-      Supporting a team of professional CAD modellers and developers to bring 
-      their projects to life. I craft Python scripts to streamline CAD workflows, 
-      fix raw photogrammetry scans, enhancing design efficiency, and develop C++ 
-      solutions for ESP32 microcontrollers, enabling robust embedded systems integration.
+      Supported a team of professional CAD modelers and developers in bringing
+      projects to life. Crafted Python scripts to streamline CAD workflows,
+      fixed raw photogrammetry scans to enhance design efficiency, and developed
+      C++ solutions for ESP32 microcontrollers, enabling robust embedded systems integration.
     tags:
       - C++
       - Python
@@ -46,11 +46,11 @@ experiences:
     title: Unreal Engine Developer
     dates: April 2024 - November 2024
     description: >
-      Contributed to multiple studio projects. For a multiplayer FPS game Dissonators (ex Warcos 2), 
+      Contributed to multiple studio projects. For a multiplayer FPS game Dissonators, 
       implemented gameplay features using GAS, built an ability-based operator system, 
       revamped QTE battle mode, and enhanced UI. For MMO Holiverse, developed network 
       functionality (player relations, chats, groups, auctions) with WebSocket integration. 
-      Initiated a custom shooting system for The Last Station (survival game).
+      Initiated a custom shooting system for survival game Steel Ark.
     tags:
       - Unreal Engine
       - C++
@@ -125,6 +125,31 @@ projects:
        text: "Source"
        icon: "gitlab.svg"
 
+  - title: Steel Ark
+    team: 4Tale Production
+    description: A survival game project.
+    role: >
+      Initiated the development of a custom shooting system, focusing on core mechanics 
+      and foundational implementation within Unreal Engine.
+    tags: 
+      - Unreal Engine
+      - C++
+      - GAS
+      - UI
+      - AI & NPCs
+    links:
+     - url: "https://store.steampowered.com/app/3915840/Steel_Ark" 
+       text: "Steam"
+       icon: "steam.svg"
+     - url: "https://youtu.be/wfl-_wEWIMA"
+       text: "Trailer"
+       icon: "youtube.svg"
+     - url: "https://youtu.be/hq0ny6ExAas"
+       text: "Gameplay Trailer"
+       icon: "youtube.svg"
+     - url: "https://www.4taleproduction.com/game/steel-ark"
+       text: "More"
+
   - title: Dissonators
     team: 4Tale Production
     description: A fast-paced multiplayer first-person shooter.
@@ -142,7 +167,7 @@ projects:
      - url: "https://store.steampowered.com/app/2498610/Dissonators/" 
        text: "Steam"
        icon: "steam.svg"
-     - url: "https://youtu.be/brSkeG-SOkY"
+     - url: "https://youtu.be/Io2zYMiJvzo"
        text: "Trailer"
        icon: "youtube.svg"
      - url: "https://www.4taleproduction.com/game/dissonators"
@@ -166,22 +191,6 @@ projects:
        icon: "youtube.svg"
      - url: "https://holiverse.ai/"
        text: "More"
-
-  - title: The Last Station
-    team: 4Tale Production
-    description: A survival game project.
-    role: >
-      Initiated the development of a custom shooting system, focusing on core mechanics 
-      and foundational implementation within Unreal Engine.
-    tags: 
-      - Unreal Engine
-      - C++
-      - GAS
-      - UI
-      - AI & NPCs
-    links:
-     - url: "https://www.linkedin.com/posts/4tale-production_indiedev-videogames-gamedev-activity-7308112254594371584-cu3l"
-       text: "Announcement"
 
   - title: B2B VR Device Demo
     team: Dualboot Partners
