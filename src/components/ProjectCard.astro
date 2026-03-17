@@ -14,19 +14,11 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
 ---
 // src/components/ProjectCard.astro
+import type { Project } from "../data/portfolioSchema";
 
-interface Props {
-    title: string;
-    team: string;
-    description: string;
-    role?: string;
-    links?: { url: string; text: string; icon?: string; }[];
-    tags?: string[];
-}
+type Props = Pick<Project, "title" | "team" | "description" | "role" | "links" | "tags">;
 
-const { title, team, description, role, links = [], tags = [] } = Astro.props;
-
-const defaultIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" role="img" aria-label="Website link icon"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>`;
+const { title, team, description, role, links = [], tags = [] } = Astro.props as Props;
 ---
 
 <article class="project-card">
@@ -48,31 +40,10 @@ const defaultIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" heigh
     </div>
     {links.length > 0 && (
         <footer class="project-card-footer project-links">
-            {links.map(link => (
-                <a 
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="btn btn-project-link"
-                >
-                    {link.icon && (
-                        <img 
-                            src={`/icons/${link.icon}`}
-                            alt={`${link.text} icon`}
-                            class="btn-icon"
-                            width="16"
-                            height="16"
-                            loading="lazy"
-                            aria-hidden="true"
-                        />
-                    )}
-                    <span>{link.text}</span>
-                </a>
-            ))}
-            {/* {links.map(link => {
-                const iconSrc = `/icons/${link.icon ? link.icon : "external-link.svg"}`;
-                const iconAlt = link.icon ? `${link.text} icon` : "External link";
-                
+            {links.map((link) => {
+                const iconSrc = `/icons/${link.icon ?? "external-link.svg"}`;
+                const iconAlt = link.icon ? `${link.text} icon` : "External link icon";
+
                 return (
                     <a 
                         href={link.url} 
@@ -92,7 +63,7 @@ const defaultIconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="16" heigh
                         <span>{link.text}</span>
                     </a>
                 );
-            })} */}
+            })}
         </footer>
     )}
 </article>

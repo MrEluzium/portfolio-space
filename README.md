@@ -88,9 +88,11 @@ This project is designed to be easily deployable on [Netlify](https://www.netlif
         ```bash
         npm run dev
         ```
-    *   Perform a production build and preview locally to catch any issues:
+    *   Perform reliability checks, then build and preview locally to catch any issues:
         ```bash
-        npm run build
+        npm run validate:data
+        npm run check
+        npm run build:ci
         npm run preview
         ```
 
@@ -112,7 +114,7 @@ This project is designed to be easily deployable on [Netlify](https://www.netlif
     *   Select **your forked repository** (e.g., `<YourGitHubUsername>/portfolio-space`).
     *   Verify the build settings (Netlify usually detects Astro correctly):
         *   **Branch to deploy:** `main` (or your default branch)
-        *   **Build command:** `npm run build`
+        *   **Build command:** `npm run build:ci`
         *   **Publish directory:** `dist`
     *   Click "Deploy site". Netlify will build and deploy your customized portfolio.
 
@@ -124,3 +126,4 @@ This project is designed to be easily deployable on [Netlify](https://www.netlif
 ## 📄 License
 
 The code is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**. You can find the full license text [here](https://www.gnu.org/licenses/agpl-3.0.html).
+
