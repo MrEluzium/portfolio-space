@@ -41,8 +41,9 @@ const { title, team, description, role, links = [], tags = [] } = Astro.props as
     {links.length > 0 && (
         <footer class="project-card-footer project-links">
             {links.map((link) => {
-                const iconSrc = `/icons/${link.icon ?? "external-link.svg"}`;
-                const iconAlt = link.icon ? `${link.text} icon` : "External link icon";
+                const hasIcon = Boolean(link.icon);
+                const iconSrc = hasIcon ? `/icons/${link.icon}` : "";
+                const iconAlt = hasIcon ? `${link.text} icon` : "";
 
                 return (
                     <a 
@@ -51,15 +52,17 @@ const { title, team, description, role, links = [], tags = [] } = Astro.props as
                         rel="noopener noreferrer" 
                         class="btn btn-project-link"
                     >
-                        <img 
-                            src={iconSrc}
-                            alt={iconAlt}
-                            class="btn-icon"
-                            width="16"
-                            height="16"
-                            loading="lazy"
-                            aria-hidden="true"
-                        />
+                        {hasIcon && (
+                            <img 
+                                src={iconSrc}
+                                alt={iconAlt}
+                                class="btn-icon"
+                                width="16"
+                                height="16"
+                                loading="lazy"
+                                aria-hidden="true"
+                            />
+                        )}
                         <span>{link.text}</span>
                     </a>
                 );
