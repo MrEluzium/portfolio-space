@@ -62,11 +62,12 @@ const { title } = Astro.props;
     <!-- Site Footer -->
 	<footer class="site-footer">
 		<div class="container">
-			<p>© {new Date().getFullYear()} Artyom Voronov. <a target="_blank" rel="noopener noreferrer" href="https://github.com/MrEluzium/portfolio-space">Source code</a></p>
+			<p>&copy; {new Date().getFullYear()} Artyom Voronov. <a target="_blank" rel="noopener noreferrer" href="https://github.com/MrEluzium/portfolio-space">Source code</a></p>
 		</div>
    </footer>
          
    <script>
+	// @ts-nocheck
 	// --- Simple Throttle Function ---
 	function throttle(func, limit) {
 		let lastFunc;

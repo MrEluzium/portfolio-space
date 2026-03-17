@@ -13,16 +13,17 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>. -->
 ---
-import YAML from 'yaml';
 import { Image } from 'astro:assets';
 
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import { parsePortfolioData } from '../data/loadPortfolioData';
+import type { PortfolioData } from '../data/portfolioSchema';
 
 import profilePic from '../assets/head.jpg';
 import rawPortfolioData from '../data/portfolioData.yaml?raw';
 
-const portfolioData = YAML.parse(rawPortfolioData);
+const portfolioData: PortfolioData = parsePortfolioData(rawPortfolioData);
 ---
 
 <Layout title="Artyom Voronov - Gameplay Developer Portfolio">
