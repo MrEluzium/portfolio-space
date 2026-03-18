@@ -321,6 +321,9 @@ const { title } = Astro.props;
 				top: pendingTargetScrollY,
 				behavior: 'smooth',
 			});
+			if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+				link.blur();
+			}
 			scheduleUpdate();
 		}
 
