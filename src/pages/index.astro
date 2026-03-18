@@ -60,11 +60,31 @@ const portfolioData: PortfolioData = parsePortfolioData(rawPortfolioData);
         <div class="container">
             <h2>Experience</h2>
             <div class="experience-list">
-                {portfolioData.experiences.map(exp => (
-                    <article class="experience-item">
-                        <h3 class="experience-title">{exp.title}</h3>
-                        <p class="experience-company">{exp.company}</p>
-                        <p class="experience-dates">{exp.dates}</p>
+                {portfolioData.experiences.map((exp) => {
+                    const hasCareerPath = Boolean(exp.careerPath && exp.careerPath.length > 0);
+
+                    return (
+                    <article class={`experience-item${hasCareerPath ? ' has-career-path' : ''}`}>
+                        <h3 class="experience-company-heading">{exp.company}</h3>
+                        {hasCareerPath ? (
+                            <div class="experience-career-path" aria-label={`Career path at ${exp.company}`}>
+                                {(exp.careerPath ?? []).map((role) => (
+                                    <div class="career-step">
+                                        <div class="career-step-header">
+                                            <h4 class="career-step-title">{role.title}</h4>
+                                            {role.isCurrent && <span class="career-step-current">Current</span>}
+                                        </div>
+                                        <p class="career-step-dates">{role.dates}</p>
+                                        {role.description && <p class="career-step-description">{role.description}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <div class="experience-single-role">
+                                <h4 class="career-step-title">{exp.title}</h4>
+                                <p class="experience-dates">{exp.dates}</p>
+                            </div>
+                        )}
                         <p class="experience-description">{exp.description}</p>
 						{exp.tags && exp.tags.length > 0 && (
                             <div class="experience-tags">
@@ -75,7 +95,7 @@ const portfolioData: PortfolioData = parsePortfolioData(rawPortfolioData);
                             </div>
                         )}
                     </article>
-                ))}
+                )})}
             </div>
         </div>
     </section>

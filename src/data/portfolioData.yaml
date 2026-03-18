@@ -16,19 +16,38 @@ contactInfo:
 
 experiences:
   - company: The Invaders
-    title: Unreal Engine Developer
-    dates: May 2025 - Present
+    title: Unreal Engine R&D Tech Lead
+    dates: October 2025 - Present
     description: >
-      Creating a virtual urban space!
+      Progressed from Unreal Engine Developer to R&D Tech Lead on an Urban
+      Digital Twin project, expanding responsibility from hands-on delivery of
+      complex technical solutions to team leadership and execution ownership.
+    careerPath:
+      - title: R&D Tech Lead
+        dates: October 2025 - Present
+        description: >
+          Leading a multidisciplinary team on an innovative Urban Digital Twin
+          initiative, shaping technical direction, mentoring engineers, and
+          supporting team growth and sustainable delivery practices.
+      - title: Unreal Engine Developer
+        dates: May 2025 - September 2025
+        description: >
+          Implemented new solutions for the Urban Digital Twin platform using
+          Cesium 3D, Pixel Streaming, and Unreal Engine as a backend
+          layer for an Angular client, with a strong focus on fast, reliable
+          delivery of bleeding-edge features.
     tags:
+      - Team Leadership
       - Unreal Engine
       - C++
       - Networking
       - UI/Widgets
+      - Cesium 3D
+      - Pixel Streaming
 
   - company: AIM Twins
     title: C++ / Python Developer
-    dates: December 2024 - Present
+    dates: December 2024 - July 2025
     description: >
       Supported a team of professional CAD modelers and developers in bringing
       projects to life. Crafted Python scripts to streamline CAD workflows,
