@@ -65,28 +65,25 @@ const portfolioData: PortfolioData = parsePortfolioData(rawPortfolioData);
 
                     return (
                     <article class={`experience-item${hasCareerPath ? ' has-career-path' : ''}`}>
+                        <h3 class="experience-company-heading">{exp.company}</h3>
                         {hasCareerPath ? (
-                            <>
-                                <h3 class="experience-company-heading">{exp.company}</h3>
-                                <div class="experience-career-path" aria-label={`Career path at ${exp.company}`}>
-                                    {(exp.careerPath ?? []).map((role) => (
-                                        <div class="career-step">
-                                            <div class="career-step-header">
-                                                <h4 class="career-step-title">{role.title}</h4>
-                                                {role.isCurrent && <span class="career-step-current">Current</span>}
-                                            </div>
-                                            <p class="career-step-dates">{role.dates}</p>
-                                            {role.description && <p class="career-step-description">{role.description}</p>}
+                            <div class="experience-career-path" aria-label={`Career path at ${exp.company}`}>
+                                {(exp.careerPath ?? []).map((role) => (
+                                    <div class="career-step">
+                                        <div class="career-step-header">
+                                            <h4 class="career-step-title">{role.title}</h4>
+                                            {role.isCurrent && <span class="career-step-current">Current</span>}
                                         </div>
-                                    ))}
-                                </div>
-                            </>
+                                        <p class="career-step-dates">{role.dates}</p>
+                                        {role.description && <p class="career-step-description">{role.description}</p>}
+                                    </div>
+                                ))}
+                            </div>
                         ) : (
-                            <>
-                                <h3 class="experience-title">{exp.title}</h3>
-                                <p class="experience-company">{exp.company}</p>
+                            <div class="experience-single-role">
+                                <h4 class="career-step-title">{exp.title}</h4>
                                 <p class="experience-dates">{exp.dates}</p>
-                            </>
+                            </div>
                         )}
                         <p class="experience-description">{exp.description}</p>
 						{exp.tags && exp.tags.length > 0 && (
