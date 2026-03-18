@@ -320,9 +320,19 @@ main section[id] {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
+.experience-item.has-career-path {
+  border-left-color: #0554F2;
+}
+
 .experience-title {
   font-size: 1.3rem;
   margin-bottom: 0.25rem;
+  color: #343a40;
+}
+
+.experience-company-heading {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
   color: #343a40;
 }
 
@@ -344,6 +354,82 @@ main section[id] {
   line-height: 1.7;
   color: #495057;
   margin-bottom: 1rem;
+}
+
+.experience-career-path {
+  margin-bottom: 1rem;
+}
+
+.career-step {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.career-step:not(:last-child) {
+  padding-bottom: 1.1rem;
+}
+
+.career-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 0.45rem;
+  top: 1rem;
+  bottom: 0.1rem;
+  width: 2px;
+  background-color: #ced4da;
+}
+
+.career-step::after {
+  content: '';
+  position: absolute;
+  left: 0.15rem;
+  top: 0.35rem;
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  background-color: #ffffff;
+}
+
+.career-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.2rem;
+}
+
+.career-step-title {
+  font-size: 1.08rem;
+  margin-bottom: 0;
+  line-height: 1.35;
+  color: #343a40;
+}
+
+.career-step-current {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(5, 84, 242, 0.25);
+  background-color: rgba(5, 84, 242, 0.1);
+  color: #0554F2;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.career-step-dates {
+  font-size: 0.88rem;
+  color: #6c757d;
+  margin-bottom: 0.4rem;
+}
+
+.career-step-description {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: #495057;
+  margin-bottom: 0;
 }
 
 .experience-tags {
@@ -374,6 +460,20 @@ main section[id] {
 @media (min-width: 1024px) {
   .project-grid {
   grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .career-step {
+    padding-left: 1.55rem;
+  }
+
+  .career-step:not(:last-child)::before {
+    left: 0.4rem;
+  }
+
+  .career-step::after {
+    left: 0.1rem;
   }
 }
 

@@ -8,12 +8,20 @@ const projectLinkSchema = z.object({
   icon: nonEmptyString.optional(),
 });
 
+const careerPathItemSchema = z.object({
+  title: nonEmptyString,
+  dates: nonEmptyString,
+  description: nonEmptyString.optional(),
+  isCurrent: z.boolean().optional(),
+});
+
 const experienceSchema = z.object({
   company: nonEmptyString,
   title: nonEmptyString,
   dates: nonEmptyString,
   description: nonEmptyString,
   tags: z.array(nonEmptyString).optional(),
+  careerPath: z.array(careerPathItemSchema).optional(),
 });
 
 const projectSchema = z.object({
@@ -46,5 +54,6 @@ export const portfolioDataSchema = z.object({
 
 export type PortfolioData = z.infer<typeof portfolioDataSchema>;
 export type Experience = z.infer<typeof experienceSchema>;
+export type CareerPathItem = z.infer<typeof careerPathItemSchema>;
 export type Project = z.infer<typeof projectSchema>;
 export type ProjectLink = z.infer<typeof projectLinkSchema>;
